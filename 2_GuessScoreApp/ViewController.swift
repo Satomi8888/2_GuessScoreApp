@@ -13,10 +13,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     
-    var random = Int(arc4random_uniform(100) + 1)
+    var random = Int(arc4random_uniform(101))
     var count = 0
 
     @IBAction func tapButon(_ sender: Any) {
+        //nilとテキスト入力の場合の処理、0〜100以外の数字の時の処理
         count += 1
         let answer = Int(textField.text!)!
         if answer == random {
