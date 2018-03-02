@@ -11,11 +11,21 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
-
-    var random = String(arc4random_uniform(100) + 1)
+    @IBOutlet weak var resultLabel: UILabel!
+    
+    var random = Int(arc4random_uniform(100) + 1)
+    var count = 0
 
     @IBAction func tapButon(_ sender: Any) {
-
+        count += 1
+        let answer = Int(textField.text!)!
+        if answer == random {
+            resultLabel.text = "正解！\(count)"
+        } else if answer > random {
+            resultLabel.text = "もっと低いよ"
+        } else if answer < random {
+            resultLabel.text = "もっと高いよ"
+        }
     }
     
     override func viewDidLoad() {
