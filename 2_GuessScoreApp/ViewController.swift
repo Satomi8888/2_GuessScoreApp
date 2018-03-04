@@ -17,15 +17,17 @@ class ViewController: UIViewController {
     var count = 0
 
     @IBAction func tapButon(_ sender: Any) {
+        //ボタンを押した時の処理
         //nilとテキスト入力の場合の処理、0〜100以外の数字の時の処理
-        count += 1
-        let answer = Int(textField.text!)!
-        if answer == random {
-            resultLabel.text = "正解！\(count)"
-        } else if answer > random {
-            resultLabel.text = "もっと低いよ"
-        } else if answer < random {
-            resultLabel.text = "もっと高いよ"
+        if let answer = Int(textField.text!){
+            count += 1
+            if answer == random {
+                resultLabel.text = "正解！\(count)回目で当たったよ"
+            } else if answer > random {
+                resultLabel.text = "もっと低いよ"
+            } else if answer < random {
+                resultLabel.text = "もっと高いよ"
+            }
         }
     }
     
