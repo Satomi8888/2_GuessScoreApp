@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
     
+    @IBOutlet weak var examImage: UIImageView!
+    
     var random = Int(arc4random_uniform(101))
     var count = 0
 
@@ -33,6 +35,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        examImage.image = #imageLiteral(resourceName: "testimg")
+        self.textField.keyboardType = UIKeyboardType.numberPad
     }
 
     override func didReceiveMemoryWarning() {
