@@ -10,17 +10,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        examImage.image = #imageLiteral(resourceName: "testimg")
+    }
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var resultLabel: UILabel!
-    
     @IBOutlet weak var examImage: UIImageView!
-    
     var random = Int(arc4random_uniform(101))
     var count = 0
 
     @IBAction func tapButon(_ sender: Any) {
         //ボタンを押した時の処理
-        //nilとテキスト入力の場合の処理、0〜100以外の数字の時の処理
         if let answer = Int(textField.text!){
             count += 1
             if answer == random {
@@ -32,16 +34,9 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        examImage.image = #imageLiteral(resourceName: "testimg")
-        self.textField.keyboardType = UIKeyboardType.numberPad
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
 }
 
